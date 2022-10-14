@@ -1,10 +1,5 @@
 
-const friends=[
-    {id:0,name:"ahmed"},
-    {id:1,name:"taoufik1"}
-  ]
-
-
+const friends=require('../models/friends')
 
 const getAllFriends=(req,res)=>{
     res.json(friends)
