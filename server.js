@@ -2,22 +2,25 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-//content type : text/html
-app.get('/', (req, res) => {
-  res.send('Hello World!123')
+
+const friends=[
+  {id:0,name:"ahmed"},
+  {id:1,name:"taoufik1"}
+]
+
+app.get('/friends',(req,res)=>{
+    res.json(friends)
 })
 
-//content type : text/html
-app.get('/h', (req, res) => {
-  res.send('<h1>html</h1>')
-})
+app.get('/friends/:friendId',(req,res)=>{
+    const friendId=Number(req.params.friendId)
+    const friend=friends[friendId]
+    if (friend) {
+        res.status(200).send()
+    } else {
+      res.status(404).json({error:"this friend does not exist"})
+    }
 
-//content type :application/json
-app.get('/j', (req, res) => {
-  res.send({
-    id:1,
-    name:"taoufik "
-  })
 })
 
 
