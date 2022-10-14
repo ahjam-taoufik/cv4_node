@@ -1,18 +1,19 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const friends=require('./controllers/friends')
+const friendsController=require('./controllers/friends')
 
+const friendRouter=express.Router()
 
 // middleware to use json format in post request
 app.use(express.json())
 
-app.post('/friends',friends.addFriend)
 
+friendRouter.post('/',friendsController.addFriend)
+friendRouter.get('/',friendsController.getAllFriends)
+friendRouter.get('/:friendId',friendsController.getOneFriend)
 
-app.get('/friends',friends.getAllFriends)
-app.get('/friends/:friendId',friends.getOneFriend)
-
+app.use('/friends',friendRouter)
 
 
 app.listen(port, () => {
