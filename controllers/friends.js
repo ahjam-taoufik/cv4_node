@@ -27,7 +27,7 @@ function addFriend(req,res){
       name:req.body.name
     }
     friends.push(friend)
-    res.status(200).json([friend,{message:{success:"friend has been created"}}])
+    res.status(201).json([friend,{message:{success:"friend has been created"}}])
 }
 
 module.exports={
