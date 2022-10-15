@@ -13,6 +13,7 @@ function getOneFriend(req,res){
       res.status(404).json({message:{error:"this friend does not exist"}})
     }
 }
+
 function addFriend(req,res){
     if (!req.body.name) {
      return res.status(400).json({error:"missing name of friend"})

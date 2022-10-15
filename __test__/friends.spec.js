@@ -7,6 +7,19 @@ describe('Test Get /friends',()=>{
         .get('/friends/')
         .expect('Content-Type', /json/)
         .expect(200)
-        // expect(response.statusCode).toBe(200)
+       
+    })
+})
+
+describe('Test Post /friends',()=>{
+    test('It should respond with 201 success',async()=>{
+        const response=await request(app)
+        .post('/friends')
+        .send({
+            id:2,
+            name:"test_1"
+        })
+        .expect('Content-Type', /json/)
+        .expect(201)
     })
 })
