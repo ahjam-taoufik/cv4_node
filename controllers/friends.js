@@ -1,10 +1,8 @@
 
 const friends=require('../models/friends')
-
 const getAllFriends=(req,res)=>{
     res.json(friends)
 }
-
 
 function getOneFriend(req,res){
     const friendId=Number(req.params.friendId)
@@ -14,9 +12,7 @@ function getOneFriend(req,res){
     } else {
       res.status(404).json({message:{error:"this friend does not exist"}})
     }
-
 }
-
 function addFriend(req,res){
     if (!req.body.name) {
      return res.status(400).json({error:"missing name of friend"})
