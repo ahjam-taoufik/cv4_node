@@ -3,7 +3,10 @@ const {app}=require('../app')
 
 describe('Test Get /friends',()=>{
     test('It should respond with 200 success',async()=>{
-        const response=await request(app).get('/friends/')
-        expect(response.statusCode).toBe(200)
+        const response=await request(app)
+        .get('/friends/')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        // expect(response.statusCode).toBe(200)
     })
 })
